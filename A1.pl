@@ -3,7 +3,6 @@
 %%%
 
 :- discontiguous male/1, female/1, parent/2.
-
 name("Eric", "Mertz", "ejm804").
 
 %male(X).
@@ -62,7 +61,7 @@ grandmother(C, M) :-
 	grandparent(C, M).
 
 grandfather(C, F) :- 
-	male(F)
+	male(F),
 	grandparent(C, F).
 
 %ancestors
@@ -71,76 +70,6 @@ ancestor(X, A) :-
 ancestor(X, A) :- 
 	parent(X, P), 
 	ancestor(P, A).
-
-male(eric).
-female(grace).
-
-male(dad).
-male(robert).
-female(wendy).
-
-male(connor).
-female(brooke).
-female(taylor).
-
-female(deborah).
-female(tina).
-female(maribel).
-
-male(david).
-male(jonathan).
-
-male(thomas).
-male(michael).
-female(maria).
-
-male(gpa).
-female(elaine).
-
-female(lola).
-male(papa).
-
-parent(eric, deborah).
-parent(grace, deborah).
-parent(eric, dad).
-parent(grace, dad).
-
-parent(dad, gpa).
-parent(robert, gpa).
-parent(wendy, gpa).
-parent(dad, elaine).
-parent(robert, elaine).
-parent(wendy, elaine).
-
-parent(connor, wendy).
-parent(brooke, wendy).
-parent(taylor, wendy).
-
-parent(deborah, papa).
-parent(maribel, papa).
-parent(tina, papa).
-parent(deborah, lola).
-parent(maribel, lola).
-parent(tina, lola).
-
-parent(david, tina).
-parent(jonathan, tina).
-
-parent(thomas, maribel).
-parent(maria, maribel).
-parent(michael, maribel).
-
-
-
-
-%part 2
-
-calls(a, b).
-calls(b, c).
-calls(b, d).
-calls(c, d).
-calls(d, x).
-calls(x, s).
 
 reachable_from(A, B) :- 
 	calls(A, B).
